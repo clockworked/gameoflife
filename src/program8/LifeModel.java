@@ -1,5 +1,9 @@
 package program8;
 
+// WARNING: This class includes some heavy commenting/output due to bug fixing
+// (Which happened to be a misplaced + sign). I had considering cleaning
+// it up, but I believe it does a good job of showing my debugging methods.
+
 public class LifeModel implements GameModel{
 	private boolean [][] _cells;
 	private boolean [][] _nextCells;
@@ -167,7 +171,7 @@ public class LifeModel implements GameModel{
 			}
 		}
 		catch(Exception e){
-			// Nada numero uno
+			//Nothing
 		}
 		try{
 			//System.out.println("2");
@@ -228,7 +232,7 @@ public class LifeModel implements GameModel{
 
 		}
 		catch(Exception e){
-			// Nothing # 8!
+			// Nothing
 		}
 		if (neighbors > 0) System.out.println(i + " " + j + " Currently has " + neighbors + " neighbors");
 

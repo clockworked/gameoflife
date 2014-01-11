@@ -10,55 +10,48 @@ public class Controller implements GameController, ActionListener {
 	private LifeModel _model;
 	private LifeView _view;
 	private LifeButton _button;
-	
-	
-	public Controller(LifeModel m, LifeView v){
+
+	// Constructor sets passed in model and view to instance variables and
+	// creates a new timer & button
+	public Controller(LifeModel m, LifeView v) {
 
 		_model = m;
 		_view = v;
-		
+
 		timer = new Timer(100, this);
-		timer.setInitialDelay(100);  
-		
+		timer.setInitialDelay(100);
+
 		_button = new LifeButton(this);
 	}
 
-	@Override
 	public JPanel getIoPanel() {
-		return (JPanel)_button;
+		return (JPanel) _button;
 	}
 
-	@Override
 	public void startAnimation() {
-		timer.start(); 
-		
+		timer.start();
+
 	}
 
-	@Override
 	public void stopAnimation() {
-		timer.stop(); 
-		
+		timer.stop();
+
 	}
 
-	@Override
+	// With every tick, update the game, redraw and pause for 1 second
 	public void actionPerformed(ActionEvent e) {
-		//_view.Play();
 		_model.updateGame();
 		_view.Play();
-		// Below is some delay code I found on stack exchange. I couldn't seem to get one working with timer.
-        try {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException ie) {
-            System.out.println("Caught");
-        }
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ie) {
+			System.out.println("Caught");
+		}
 
-		
 	}
-	
-	public void setModify(Boolean b){
+
+	public void setModify(Boolean b) {
 		_view.setModify(b);
 	}
-
 
 }
